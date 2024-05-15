@@ -125,6 +125,12 @@ class TVSeriesDetailsViewBuilder: DetailsViewBuilder {
         Task {
             do {
                 let image: UIImage = try await self.getImage(for: posterPath, type: .poster)
+                let aspectRatio = image.size.width / image.size.height
+
+                await NSLayoutConstraint.activate([
+                    imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: aspectRatio)
+                ])
+
                 DispatchQueue.main.async {
                     imageView.image = image
                     UIView.animate(withDuration: 0.3) {
@@ -136,7 +142,6 @@ class TVSeriesDetailsViewBuilder: DetailsViewBuilder {
 
         return imageView
     }()
-
 
     func buildCard() -> UIView {
         return self.stackView

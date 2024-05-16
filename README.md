@@ -10,8 +10,11 @@
 
 ## Usage
 App will start to an empty collection view
+
 Type a search query and select a scope, then tap the Search button (or press Enter)
+
 Results will appear in the collection view. Tapping on a result will lead to a detail view.
+
 
 ## Room for improvement and known issues
 - Testing! 

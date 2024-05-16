@@ -146,6 +146,4 @@ class TVSeriesDetailsViewBuilder: DetailsViewBuilder {
     func buildCard() -> UIView {
         return self.stackView
     }
-
-    var images: [ImageKey : Data] = [:]
 }

@@ -22,20 +22,6 @@ class SearchResultsDataSourceWrapper: NSObject, UICollectionViewDataSource {
             }
 
             content.image = UIImage(systemName: "movieclapper")
-
-            if let posterURL = movie.posterPath {
-                Task {
-                    do {
-                        let client = TMDBClient()
-                        let bytes = try await client.getImage(for: posterURL, type: .poster)
-                        let image = UIImage(data: bytes)
-                        DispatchQueue.main.async { content.image = image }
-                    } catch {
-                        print("error fetching poster for \(movie.title): \(error)")
-                    }
-                }
-            }
-
             cell.contentConfiguration = content
         }
     }()
@@ -51,16 +37,6 @@ class SearchResultsDataSourceWrapper: NSObject, UICollectionViewDataSource {
                 content.secondaryText = "\(episodes) episodes in \(seasons) seasons" // fixme!
             }
             content.image = UIImage(systemName: "tv")
-
-            if let posterURL = series.posterPath {
-                Task {
-                    let client = TMDBClient()
-                    let bytes = try await client.getImage(for: posterURL, type: .poster)
-                    let image = UIImage(data: bytes)
-                    DispatchQueue.main.async { content.image = image }
-                }
-            }
-
             cell.contentConfiguration = content
         }
     }()

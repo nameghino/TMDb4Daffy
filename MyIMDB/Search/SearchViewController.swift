@@ -37,12 +37,8 @@ class SearchViewController: UIViewController {
     }
 
     private lazy var collectionView: UICollectionView = {
-
         var configuration = UICollectionLayoutListConfiguration(appearance: .plain)
-
         let layout = UICollectionViewCompositionalLayout.list(using: configuration)
-
-
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self.collectionViewDataSource
@@ -90,23 +86,24 @@ class SearchViewController: UIViewController {
         ])
     }
 
-    private var shouldAutofill: Bool = true
-    private func autofillForTesting() {
-        // Testing code!
-        self.searchController.searchBar.text = "back to the future"
-        self.searchController.searchBar.selectedScopeButtonIndex = 1
-
-        self.updateSearchResults(for: self.searchController)
-        self.searchBar(self.searchController.searchBar, selectedScopeButtonIndexDidChange: 1)
-        self.searchBarSearchButtonClicked(self.searchController.searchBar)
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        if self.shouldAutofill {
-            self.autofillForTesting()
-            self.shouldAutofill = false
-        }
-    }
+//    **Testing code**
+//    private var shouldAutofill: Bool = true
+//    private func autofillForTesting() {
+//        // Testing code!
+//        self.searchController.searchBar.text = "back to the future"
+//        self.searchController.searchBar.selectedScopeButtonIndex = 1
+//
+//        self.updateSearchResults(for: self.searchController)
+//        self.searchBar(self.searchController.searchBar, selectedScopeButtonIndexDidChange: 1)
+//        self.searchBarSearchButtonClicked(self.searchController.searchBar)
+//    }
+//
+//    override func viewDidAppear(_ animated: Bool) {
+//        if self.shouldAutofill {
+//            self.autofillForTesting()
+//            self.shouldAutofill = false
+//        }
+//    }
 }
 
 extension SearchViewController: UISearchBarDelegate {

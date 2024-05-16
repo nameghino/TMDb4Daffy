@@ -27,8 +27,6 @@ class TMDBClient {
         case backdrop, logo, poster, profile, still
     }
 
-    // Move these to a config stage
-    //    private let apiKey: String = "64d6f9d58986479ed820fc6a6bdd547b"
     private let apiKey: String = {
         guard 
             let key = Bundle.main.object(forInfoDictionaryKey: "TMDB_API_KEY") as? String,

@@ -51,5 +51,4 @@ class TVSeriesDetailsViewModel {
     var overview: String? { return series.overview }
 
     var posterPath: URL? { return series.posterPath }
-
 }

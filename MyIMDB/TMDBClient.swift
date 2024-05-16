@@ -28,8 +28,19 @@ class TMDBClient {
     }
 
     // Move these to a config stage
-    private let apiKey: String = "64d6f9d58986479ed820fc6a6bdd547b"
-    private let apiReadAccessToken: String = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NGQ2ZjlkNTg5ODY0NzllZDgyMGZjNmE2YmRkNTQ3YiIsInN1YiI6IjY2NDRkNzljMzJhZmYxMDA5YjViZDAwYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Dr_Qcl4BC-LjB3v91Mvr5ofe2p1pwwGzQZ6dDjGsvo4"
+    //    private let apiKey: String = "64d6f9d58986479ed820fc6a6bdd547b"
+    private let apiKey: String = {
+        guard 
+            let key = Bundle.main.object(forInfoDictionaryKey: "TMDB_API_KEY") as? String,
+            !key.isEmpty,
+            key != "- INSERT API KEY HERE -"
+        else {
+            fatalError("Set the API key in Info.plist")
+        }
+
+        return key
+    }()
+
 
     private lazy var configuration: TMDbConfiguration = {
         let configuration = TMDbConfiguration(apiKey: self.apiKey)

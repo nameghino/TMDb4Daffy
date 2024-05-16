@@ -97,16 +97,6 @@ class SearchResultsDataSourceWrapper: NSObject, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection sectionIndex: Int) -> Int {
 
         return self.viewModel.media.count
-
-//        guard let section = SearchCollectionViewSection(rawValue: sectionIndex) else { return 0 }
-//        switch section {
-//        case .movies:
-//            return self.viewModel.movies.count
-//        case .tvSeries:
-//            return self.viewModel.tvSeries.count
-//        case .people:
-//            return self.viewModel.people.count
-//        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -123,22 +113,6 @@ class SearchResultsDataSourceWrapper: NSObject, UICollectionViewDataSource {
             let cell = collectionView.dequeueConfiguredReusableCell(using: self.personCellRegistration, for: indexPath, item: person)
             return cell
         }
-
-//        guard let section = SearchCollectionViewSection(rawValue: indexPath.section) else { return UICollectionViewCell() }
-//        switch section {
-//        case .movies:
-//            let movie = viewModel.movies[indexPath.item]
-//            let cell = collectionView.dequeueConfiguredReusableCell(using: self.movieCellRegistration, for: indexPath, item: movie)
-//            return cell
-//        case .tvSeries:
-//            let series = viewModel.tvSeries[indexPath.item]
-//            let cell = collectionView.dequeueConfiguredReusableCell(using: self.tvSeriesCellRegistration, for: indexPath, item: series)
-//            return cell
-//        case .people:
-//            let movie = viewModel.people[indexPath.item]
-//            let cell = collectionView.dequeueConfiguredReusableCell(using: self.personCellRegistration, for: indexPath, item: movie)
-//            return cell
-//        }
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

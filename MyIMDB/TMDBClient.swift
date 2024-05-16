@@ -41,6 +41,11 @@ class TMDBClient {
         return service
     }()
 
+    private lazy var personService: PersonService = {
+        let service = PersonService(configuration: self.configuration)
+        return service
+    }()
+
     private var imagesConfiguration: ImagesConfiguration?
 
     func getImagesConfiguration() async throws -> ImagesConfiguration {
@@ -106,6 +111,11 @@ class TMDBClient {
     func searchPeople(query: String) async throws -> PersonPageableList {
         let result = try await self.searchService.searchPeople(query: query)
         print("have \(result.totalPages ?? 1) pages")
+        return result
+    }
+
+    func credits(for person: Person) async throws -> PersonCombinedCredits {
+        let result = try await self.personService.combinedCredits(forPerson: person.id)
         return result
     }
 }

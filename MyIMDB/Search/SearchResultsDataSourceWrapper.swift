@@ -114,12 +114,4 @@ class SearchResultsDataSourceWrapper: NSObject, UICollectionViewDataSource {
             return cell
         }
     }
-
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        assert(kind == UICollectionView.elementKindSectionHeader)
-        guard let section = SearchCollectionViewSection(rawValue: indexPath.section) else { return UICollectionReusableView() }
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SearchSectionHeaderView.ReuseIdentifier, for: indexPath) as! SearchSectionHeaderView
-        header.title = section.title
-        return header
-    }
 }

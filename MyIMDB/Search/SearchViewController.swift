@@ -46,9 +46,6 @@ class SearchViewController: UIViewController {
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(SearchSectionHeaderView.self,
-                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                withReuseIdentifier: SearchSectionHeaderView.ReuseIdentifier)
         collectionView.dataSource = self.collectionViewDataSource
         collectionView.delegate = self
         return collectionView

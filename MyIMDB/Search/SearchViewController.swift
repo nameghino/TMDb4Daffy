@@ -39,7 +39,6 @@ class SearchViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
 
         var configuration = UICollectionLayoutListConfiguration(appearance: .plain)
-//        configuration.headerMode = .supplementary
 
         let layout = UICollectionViewCompositionalLayout.list(using: configuration)
 
